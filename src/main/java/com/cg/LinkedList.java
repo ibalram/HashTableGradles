@@ -1,5 +1,6 @@
-package DSHashTable;
+package com.cg;
 
+import com.cg.INode;
 
 public class LinkedList<K> {
 	private INode<K> head;
@@ -58,6 +59,7 @@ public class LinkedList<K> {
 			slow = slow.getNext();
 			fast = fast.getNext().getNext();
 		}
+		count++;
 		node.setNext(slow.getNext());
 		slow.setNext(node);
 	}
@@ -93,6 +95,7 @@ public class LinkedList<K> {
 			return null;
 		}
 		INode ret = head;
+		count--;
 		head = head.getNext();
 		ret.setNext(null);
 		return ret;
@@ -109,10 +112,31 @@ public class LinkedList<K> {
 			prev = root;
 			root = root.getNext();
 		}
+		count--;
 		INode ret = prev.getNext();
 		prev.setNext(null);
 		ret.setNext(null);
 		return ret;
+	}
+
+	public void remove(K key) {
+		if (head == null) {
+			return;
+		}
+		INode root = head;
+		INode prev = null;
+		while (root != null && root.getKey() != key) {
+			prev = root;
+			root = root.getNext();
+		}
+		if (root == null)
+			return;
+		count--;
+		if (prev == null) {
+			head = head.getNext();
+			return;
+		}
+		prev.setNext(root.getNext());
 	}
 
 	public void printLinkedList() {
@@ -130,13 +154,17 @@ public class LinkedList<K> {
 		}
 		System.out.println(str.toString());
 	}
-	
+
 	public String toString() {
-		return "MyLinkedListNodes{"+head+"}";
+		return "MyLinkedListNodes{" + head + "}";
 	}
 
 	public INode getHead() {
 		return head;
+	}
+
+	public int size() {
+		return count;
 	}
 
 	public INode getTail() {

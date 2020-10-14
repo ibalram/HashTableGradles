@@ -1,4 +1,4 @@
-package DSHashTable;
+package com.cg;
 
 import java.util.ArrayList;
 
@@ -44,6 +44,16 @@ public class MyLinkedHashMap<K, V> {
 			myMapNode.setValue(value);
 		}
 
+	}
+
+	public void remove(K key) {
+		int index = this.getBucketIndex(key);
+		LinkedList<K> linkedList = this.bucketArray.get(index);
+		if (linkedList == null)
+			return;
+		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) linkedList.find(key);
+		if (myMapNode != null)
+			linkedList.remove(myMapNode.getKey());
 	}
 
 }
