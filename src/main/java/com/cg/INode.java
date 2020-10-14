@@ -1,4 +1,4 @@
-package DSHashTable;
+package com.cg;
 
 
 public interface INode<T> {

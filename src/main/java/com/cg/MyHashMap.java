@@ -1,4 +1,4 @@
-package DSHashTable;
+package com.cg;
 
 public class MyHashMap<K, V> {
 	LinkedList<K> linkedList;

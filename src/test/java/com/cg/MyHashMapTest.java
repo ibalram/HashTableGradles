@@ -1,8 +1,10 @@
-package DSHashTable;
+package com.cg;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import com.cg.MyHashMap;
 
 public class MyHashMapTest {
 	@Test

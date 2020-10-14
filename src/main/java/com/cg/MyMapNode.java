@@ -1,4 +1,4 @@
-package DSHashTable;
+package com.cg;
 
 
 public class MyMapNode<K,V> implements INode<K> {

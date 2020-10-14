@@ -1,4 +1,4 @@
-package DSHashTable;
+package com.cg;
 
 
 public class Node<T> implements INode<T> {
